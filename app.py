@@ -17,7 +17,7 @@ def registrar_equipo():
     deporte = request.form.get('deporte')
     
     # Si el usuario escribió un nombre, lo guardamos como un equipo nuevo con 0 puntos para empezar
-    iF nombre_equipo:
+    if nombre_equipo:
         nuevo_equipo = {
             'nombre': nombre_equipo,
             'deporte': deporte,
@@ -27,5 +27,5 @@ def registrar_equipo():
         
     return redirect(url_for('inicio'))
 
-iF __name__ == '__main__':
+if __name__ == '__main__':
     app.run(debug=True)
