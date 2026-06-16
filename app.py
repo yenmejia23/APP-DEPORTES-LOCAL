@@ -92,6 +92,10 @@ def guardar_rol():
                 })
                 
     return redirect(f'/deporte/{deporte}')
+import os
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Esto lee el puerto que Render necesita de forma automática
+    puerto = int(os.environ.get("PORT", 5000))
+    # Arranca la app en el host público 0.0.0.0
+    app.run(host='0.0.0.0', port=puerto, debug=True)
