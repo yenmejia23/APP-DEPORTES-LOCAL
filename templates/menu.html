@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rol de Juegos Tlalpujahua</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 90%;
+            max-width: 400px;
+        }
+        .btn-deporte {
+            background-color: #6a5acd;
+            color: white;
+            border: none;
+            padding: 18px 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn-deporte:hover {
+            background-color: #5343a9;
+            transform: translateY(-2px);
+        }
+        .btn-admin {
+            margin-top: 30px;
+            background-color: #6c757d;
+            color: white;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Rol de Juegos Tlalpujahua</h1>
+
+    <div class="menu-container">
+        <a href="/deporte/softball" class="btn-deporte">Softball (Sábados)</a>
+        <a href="/deporte/beisbol" class="btn-deporte">Béisbol (Domingos)</a>
+        <a href="/deporte/basquetbol" class="btn-deporte">Básquetbol (Sábados)</a>
+        <a href="/deporte/futbol" class="btn-deporte">Fútbol (Domingos)</a>
+    </div>
+
+    <a href="/admin" class="btn-admin">⚙️ Panel de Administración</a>
+
+</body>
+</html>

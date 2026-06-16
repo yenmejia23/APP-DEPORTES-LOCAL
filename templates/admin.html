@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Roles de Juego</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f3f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .admin-container {
+            width: 100%;
+            max-width: 650px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+        .partido-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 4px solid #6a5acd;
+        }
+        .partido-row div {
+            flex: 1;
+        }
+        .partido-row label {
+            font-size: 0.85rem;
+            margin-top: 0;
+        }
+        .btn-guardar {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 25px;
+            transition: background 0.2s;
+        }
+        .btn-guardar:hover {
+            background-color: #218838;
+        }
+        .btn-cancelar {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #6c757d;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="admin-container">
+        <h1>⚙️ Actualizar Rol de Juegos</h1>
+        
+        <form action="/guardar_rol" method="POST">
+            
+            <label for="deporte">1. Selecciona el Deporte a modificar:</label>
+            <select name="deporte" id="deporte" required>
+                <option value="softball">Softball (Sábados)</option>
+                <option value="beisbol">Béisbol (Domingos)</option>
+                <option value="basquetbol">Básquetbol (Sábados)</option>
+                <option value="futbol">Fútbol (Domingos)</option>
+            </select>
+
+            <label for="jornada">2. Información de la Jornada (Texto superior):</label>
+            <input type="text" name="jornada" id="jornada" placeholder="Ej: JORNADA 14 DEL 30 MAYO 2026" required>
+
+            <label>3. Partidos de la Jornada:</label>
+            
+            <div class="partido-row">
+                <div>
+                    <label>Local 1</label>
+                    <input type="text" name="local1" placeholder="Ej: DODGERS">
+                </div>
+                <div>
+                    <label>Campo 1</label>
+                    <input type="text" name="campo1" placeholder="Ej: REMEDIOS">
+                </div>
+                <div>
+                    <label>Visita 1</label>
+                    <input type="text" name="visita1" placeholder="Ej: MANQUES">
+                </div>
+            </div>
+
+            <div class="partido-row">
+                <div>
+                    <label>Local 2</label>
+                    <input type="text" name="local2" placeholder="Ej: FENIX">
+                </div>
+                <div>
+                    <label>Campo 2</label>
+                    <input type="text" name="campo2" placeholder="Ej: AGRARIO">
+                </div>
+                <div>
+                    <label>Visita 2</label>
+                    <input type="text" name="visita2" placeholder="Ej: SUPERNOVAS">
+                </div>
+            </div>
+
+            <div class="partido-row">
+                <div>
+                    <label>Local 3</label>
+                    <input type="text" name="local3">
+                </div>
+                <div>
+                    <label>Campo 3</label>
+                    <input type="text" name="campo3">
+                </div>
+                <div>
+                    <label>Visita 3</label>
+                    <input type="text" name="visita3">
+                </div>
+            </div>
+
+            <div class="partido-row">
+                <div>
+                    <label>Local 4</label>
+                    <input type="text" name="local4">
+                </div>
+                <div>
+                    <label>Campo 4</label>
+                    <input type="text" name="campo4">
+                </div>
+                <div>
+                    <label>Visita 4</label>
+                    <input type="text" name="visita4">
+                </div>
+            </div>
+
+            <div class="partido-row">
+                <div>
+                    <label>Local 5</label>
+                    <input type="text" name="local5">
+                </div>
+                <div>
+                    <label>Campo 5</label>
+                    <input type="text" name="campo5">
+                </div>
+                <div>
+                    <label>Visita 5</label>
+                    <input type="text" name="visita5">
+                </div>
+            </div>
+
+            <label for="descansa">4. ¿Qué equipo descansa en esta jornada? (Opcional):</label>
+            <input type="text" name="descansa" id="descansa" placeholder="Ej: DEP STARS">
+
+            <button type="submit" class="btn-guardar">💾 Publicar Jornada en Vivo</button>
+            <a href="/" class="btn-cancelar">Cancelar y regresar</a>
+        </form>
+    </div>
+
+</body>
+</html>

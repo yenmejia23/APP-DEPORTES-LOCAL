@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rol de Juegos - {{ deporte_nombre }}</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            margin-top: 20px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+        }
+        .jornada-titulo {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: bold;
+            margin-bottom: 25px;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            background-color: #6a5acd;
+            color: white;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        td {
+            color: #444;
+            font-size: 0.95rem;
+        }
+        .vs {
+            color: #888;
+            font-style: italic;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+        .descansa-box {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            margin-top: 15px;
+            border: 1px solid #ffeeba;
+            text-transform: uppercase;
+        }
+        .btn-volver {
+            margin-top: 25px;
+            display: inline-block;
+            background-color: #6c757d;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .btn-volver:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Rol de Juegos {{ deporte_nombre }}</h1>
+        
+        <div class="jornada-titulo">{{ jornada_info }}</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Local</th>
+                    <th>Campo</th>
+                    <th>Visita</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if partidos %}
+                    {% for partido in partidos %}
+                    <tr>
+                        <td><strong>{{ partido.local }}</strong></td>
+                        <td>{{ partido.campo }}</td>
+                        <td><strong>{{ partido.visita }}</strong></td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="3" style="color: #999;">No hay partidos programados para esta jornada.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+
+        {% if equipo_descansa %}
+            <div class="descansa-box">
+                😴 {{ equipo_descansa }} DESCANSA
+            </div>
+        {% endif %}
+
+        <a href="/" class="btn-volver">⬅️ Volver al Menú</a>
+    </div>
+
+</body>
+</html>
