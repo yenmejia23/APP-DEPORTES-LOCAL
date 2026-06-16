@@ -1,5 +1,5 @@
+import os
 from flask import Flask, render_template, request, redirect
-
 app = Flask(__name__)
 
 # --- TU CÓDIGO ORIGINAL (Base de datos de equipos) ---
@@ -92,7 +92,6 @@ def guardar_rol():
                 })
                 
     return redirect(f'/deporte/{deporte}')
-import os
 
 if __name__ == '__main__':
     # Esto lee el puerto que Render necesita de forma automática
