@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneo de Deportes Local</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; background-color: #f4f4f9; color: #333; }
+        h1, h2 { color: #2c3e50; }
+        .contenedor { display: flex; gap: 40px; flex-wrap: wrap; }
+        .tarjeta { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); min-width: 300px; flex: 1; }
+        form { display: flex; flex-direction: column; gap: 10px; }
+        input, select, button { padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px; }
+        button { background-color: #27ae60; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #219653; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #2c3e50; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+    </style>
+</head>
+<body>
+
+    <h1>🏆 Sistema de Deportes Local</h1>
+    <hr>
+
+    <div class="contenedor">
+        <div class="tarjeta">
+            <h2>📝 Inscripción de Equipos</h2>
+            <form action="/registrar" method="POST">
+                <label for="nombre">Nombre del Equipo:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej. Gavilanes CBTIS" required>
+
+                <label for="deporte">Selecciona el Deporte:</label>
+                <select id="deporte" name="deporte">
+                    <option value="Fútbol">Fútbol</option>
+                    <option value="Básquetbol">Básquetbol</option>
+                    <option value="Béisbol">Béisbol</option>
+                    <option value="Softbol">Softbol</option>
+                </select>
+
+                <button type="submit">Inscribir Equipo</button>
+            </form>
+        </div>
+
+        <div class="tarjeta">
+            <h2>📊 Tabla de Posiciones (Standings)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Equipo</th>
+                        <th>Deporte</th>
+                        <th>Puntos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for equipo in equipos %}
+                    <tr>
+                        <td>{{ equipo.nombre }}</td>
+                        <td>{{ equipo.deporte }}</td>
+                        <td><strong>{{ equipo.puntos }} pts</strong></td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="3" style="text-align: center; color: #888;">No hay equipos registrados aún.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
